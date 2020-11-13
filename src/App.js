@@ -6,7 +6,8 @@ class App extends Component {
     super(props);
     // Initialize the Search Value to an Empty String
     this.state={
-      searchValue:'Water'
+      searchValue:'',
+      fruitsToDisplay: this.props.fruits,
     }
   }
     render(){
@@ -17,14 +18,18 @@ class App extends Component {
            value={this.state.searchValue}
            onChange={this.handleSearchChange}
            />
-           <ListContainer />
+           <ListContainer fruits={this.state.fruitsToDisplay} />
         </div>
       )
     }
     handleSearchChange = (e) =>{
       const textValue = e.target.value;
+      const filteredValue =this.props.fruits.filter((fruit, index)=>{
+        return fruit.toLowerCase().includes(textValue.toLowerCase());
+      })
       this.setState({
-        searchValue:textValue
+        searchValue:textValue,
+        fruitsToDisplay: filteredValue,
       }) 
     }
 }
