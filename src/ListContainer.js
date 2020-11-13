@@ -12,7 +12,7 @@ const fruits =[
 class ListContainer extends Component{
     render(){
         const allFruits = fruits.map((item, index)=>{
-            return <ListItem name={item} />
+            return <ListItem name={item} key={index} />
         })
         return(          
           <ul>   
