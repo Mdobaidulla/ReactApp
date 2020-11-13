@@ -4,9 +4,9 @@ class ListItem extends Component {
 
     render(){
         return(
-            <ul>
-            <li>Some fake Item</li>
-        </ul>
+            <>
+                <li>{this.props.name}</li>
+           </>
         )
     }
 }

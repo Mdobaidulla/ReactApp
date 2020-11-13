@@ -1,13 +1,23 @@
 import React, {Component}  from 'react';
 import ListItem from './ListItem'
+
+const fruits =[
+    'Mango',
+    'Banana',
+    'Orange',
+    'Apple',
+    'Pineaple',
+    'Dates',
+];
 class ListContainer extends Component{
     render(){
-        return(
-          <>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-          </>
+        const allFruits = fruits.map((item, index)=>{
+            return <ListItem name={item} />
+        })
+        return(          
+          <ul>   
+              {allFruits}         
+          </ul>
         )
     }
 }
